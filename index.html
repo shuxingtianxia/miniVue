@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{car.name}}</p>
+        <p v-text='msg'></p>
+        <div><p>{{car.color}}</p></div>
+        <p v-html='msg1'></p>
+        <input type="text" v-model='car.name'>
+        <button @click="handClick">按钮</button>
+    </div>
+    <script src="./src/watcher.js"></script>
+    <script src="./src/observe.js"></script>
+    <script src="./src/compile.js"></script>
+    <script src="./src/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'nihao',
+                msg1: '<h3>hello world</h3>',
+                car: {
+                    color: 'red',
+                    name: '奔驰'
+                }
+            },
+            methods: {
+                handClick() {
+                    this.car.name = '寶馬'
+                }
+            }
+        })
+    </script>
+</body>
+</html>
